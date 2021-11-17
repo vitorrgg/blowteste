@@ -2,6 +2,18 @@
 // load footer options and contacts from content
 const footer = _.cms('footer') || {}
 const contacts = _.cms('contacts') || {}
+
+// social networks handled by contacts
+const networksWithColors = [
+  ['facebook', '#3b5998'],
+  ['youtube', '#ff0000'],
+  ['instagram', '#e1306c'],
+  ['twitter', '#1da1f2'],
+  ['tiktok', '#000000'],
+  ['pinterest', '#bd081c'],
+  ['linkedin', '#0073b1']
+]
+const { path } = _.route
 %>
 
 <footer class="footer py-3 py-lg-4 py-xl-5">
@@ -66,7 +78,19 @@ const contacts = _.cms('contacts') || {}
 
           <% if (footer.contacts.socials) { %>
             <p class="footer__social">
-              <%- await include('@/layout/inc/networks', { _, contacts }) %>
+              <% networksWithColors.forEach(([network, color]) => { %>
+                <% if (contacts[network]) { %>
+                  <a
+                    href="<%= contacts[network] %>"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="<%= network %>"
+                    style="color: <%= color %>"
+                  >
+                    <i class="fab fa-<%= network %>"></i>
+                  </a>
+                <% } %>
+              <% }) %>
             </p>
           <% } %>
         </div>
@@ -152,16 +176,48 @@ const contacts = _.cms('contacts') || {}
               </ul>
             <% } %>
           </div>
+          <% if (footer.links_3.list.find(({ url }) => url)) { %>
+            <a
+              class="footer__title"
+              data-toggle="collapse"
+              href="#footer-pages"
+              role="button"
+              aria-expanded="false"
+              aria-controls="footer-pages"
+            >
+              <%= footer.links_3.title || _.dictionary('pages') %>
+            </a>
+            <div class="collapse" id="footer-pages">
+                <ul class="footer__links">
+                  <% footer.links_3.list.forEach(({ url, text }) => { %>
+                    <li>
+                      <i class="fas fa-angle-right"></i>
+                      <a href="<%= url %>">
+                        <%= text %>
+                      </a>
+                    </li>
+                  <% }) %>
+                </ul>
+            </div>
+        <% } %>
         </div>
       <% } %>
 
-      <div class="col-12 col-xl order-lg-first">
-        <h2 class="footer__title footer__store">
-          <%= footer.description.title || _.settings.name %>
-        </h2>
-        <p><%- footer.description.text || _.settings.description %></p>
 
-        <div class="mt-4 mb-3">
+      <div class="col-12 col-xl order-lg-first">
+        <% if (path === '/' || path === '/index') { %> 
+          <h1  class="footer__title footer__store" itemprop="name"><%= footer.description.title || _.settings.name %></h1>
+        <% } else { %>
+          <h2  class="footer__title footer__store"><%= footer.description.title || _.settings.name %></h2>
+        <% } %>
+        <div style="display: flex; justify-content: center;" role="main" id="am-formulario-de-newsletter-b61733cf81abef42e0c4"></div><script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script><script type="text/javascript"> new RDStationForms('am-formulario-de-newsletter-b61733cf81abef42e0c4', 'UA-114913832-1').createForm();</script>
+      </div>
+    </div>
+    
+
+    <div class="footer__credits">
+      <div class="row">
+        <div id="pagamentos" class="col-12 col-sm-8">
           <p class="footer__payment-methods">
             <% Object.keys(footer.payment_methods).forEach(method => { %>
               <% if (footer.payment_methods[method]) { %>
@@ -169,27 +225,42 @@ const contacts = _.cms('contacts') || {}
               <% } %>
             <% }) %>
           </p>
+          <span>
+            <%= footer.credits || `© ${_.store.name} / ${contacts.address} / ${contacts.doc_number}` %>
+          </span>
+        </div>
+        <div id="selos" class="col-12 col-sm-4">
           <div class="footer__stamps">
             <%- await include(`@/sections/stamps`, { _, opt: { stamps: footer.stamps } }) %>
           </div>
+          <button
+            id="go-to-top"
+            class="btn btn-primary ml-3"
+            type="button"
+            aria-label="<%= _.dictionary('goToTop') %>"
+          >
+            <i class="fas fa-chevron-up"></i>
+          </button>
         </div>
       </div>
     </div>
-
-    <div class="footer__credits">
-      <span>
-        <%= footer.credits || `© ${_.store.name} / ${contacts.address} / ${contacts.doc_number}` %>
-      </span>
-      <button
-        id="go-to-top"
-        class="btn btn-primary ml-3"
-        type="button"
-        aria-label="<%= _.dictionary('goToTop') %>"
-      >
-        <i class="fas fa-chevron-up"></i>
-      </button>
-    </div>
   </div>
 </footer>
-
-<%- await include('@/layout/inc/ecom-credits') %>
+<div class="ecom-credits">
+  <a href="https://e-com.plus" target="_blank" rel="noopener">
+    Powered by
+    <img
+      src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png"
+      alt="E-Com Plus"
+      width="92"
+      height="19.98"
+    >
+  </a>
+  <a href="https://fwragenciadigital.com.br/" target="_blank" rel="noopener">
+    Desenvolvido por
+    <img
+      src="https://blow-hair.netlify.app/img/uploads/fwr.png"
+      alt="FWR Agência Digital"
+    >
+  </a>
+</div>
