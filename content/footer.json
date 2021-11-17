@@ -5,13 +5,59 @@
   },
   "links_1": {
     "list_pages": true,
-    "title": "Páginas",
+    "title": "Institucional",
     "list": []
   },
   "links_2": {
-    "list_categories": true,
-    "title": "Categorias",
-    "list": []
+    "list_categories": false,
+    "title": "Precisa de Ajuda?",
+    "list": [
+      {
+        "text": "Por que Blow Gummies?",
+        "url": "/pages/por-que-blow-gummies"
+      },
+      {
+        "text": "Composição",
+        "url": "/pages/ingredientes-que-contem-blow-gummies"
+      },
+      {
+        "text": "Resultados Reais ",
+        "url": "/pages/resultados-reais-blow-gummies"
+      },
+      {
+        "text": "Dúvidas Frequentes",
+        "url": "/pages/duvidas-frequentes"
+      },
+      {
+        "text": "Trocas e Devoluções",
+        "url": "/pages/trocas"
+      }
+    ]
+  },
+  "links_3": {
+    "title": "Produtos",
+    "list": [
+      {
+        "text": "Tratamento Capilar 60 dias",
+        "url": "/blow-gummies-crescimento-capilar-60-dias-tratamento"
+      },
+      {
+        "text": "Tratamento Capilar 120 dias",
+        "url": "/blow-gummies-120-dias-tratamento"
+      },
+      {
+        "text": "Tratamento Capilar 180 dias",
+        "url": "/blow-gummies-180-dias-de-tratamento"
+      },
+      {
+        "text": "Tratamento Capilar 240 dias",
+        "url": "/blow-gummies-240-dias-de-tratamento-capilar"
+      },
+      {
+        "text": "Tratamento Capilar 360 dias",
+        "url": "/blow-gummies-box-360-dias-de-tratamento"
+      }
+    ]
   },
   "contacts": {
     "title": "Contatos",
@@ -23,24 +69,26 @@
   "stamps": [
     {
       "src": "/img/uploads/ssl-safe.png",
-      "alt": "Secure connection"
+      "alt": "Secure connection",
+      "link": "#search-engine"
     }
   ],
   "payment_methods": {
-    "bb": true,
+    "bb": false,
     "visa": true,
     "boleto": true,
     "aura": false,
     "banrisul": false,
     "elo": true,
-    "hipercard": false,
+    "hipercard": true,
     "hsbc": false,
-    "bradesco": true,
+    "bradesco": false,
     "santander": false,
     "mastercard": true,
+    "paypal": false,
     "citibank": false,
     "mais": false,
     "itau": true
   },
-  "credits": ""
+  "credits": "® 2021. Blow Suplementos Alimentares -  CNPJ 14.900.786/0001-08 - Todos os direitos reservados. É vetada a reprodução, total ou parcial das fotos e informações aqui veiculadas, sem a expressa autorização da administração do site."
 }

@@ -1,26 +1,42 @@
 {
   "marketing_stripe": {
-    "text": "Aproveite nossos descontos de até 40%!",
-    "link": "/promotion"
+    "text": "",
+    "link": ""
   },
   "contacts_stripe": {
+    "phone_wpp": false,
+    "socials": true,
     "pages": [
       {
-        "title": "Sobre nós",
-        "link": "/pages/sobre-nos"
+        "title": "Comprar",
+        "link": "/compre-agora/"
       },
       {
-        "title": "Esta loja é um PWA",
-        "link": "/posts/esta-loja-e-um-pwa"
+        "title": "Composição",
+        "link": "/pages/ingredientes-que-contem-blow-gummies"
+      },
+      {
+        "title": "Resultados Reais",
+        "link": "/pages/resultados-reais-blow-gummies"
+      },
+      {
+        "title": "Blog",
+        "link": "https://blog.blowhair.com.br/"
+      },
+      {
+        "title": "Blow Gummies ?",
+        "link": "/pages/por-que-blow-gummies"
+      },
+      {
+        "title": "Contato",
+        "link": "/pages/contato"
       }
-    ],
-    "phone_wpp": true,
-    "socials": true
+    ]
   },
   "categories_list": {
     "featured": [],
     "random": 6,
     "full_width": false
   },
-  "search_input": true
+  "search_input": false
 }
